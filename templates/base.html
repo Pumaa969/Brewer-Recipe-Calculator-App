@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>BRC Inicio</title>
+    
 </head>
 <body>
     <div class="cont">
-            <h1>Calculadora De Recetas</h1>
+        <h1>Calculadora De Recetas</h1>
+        <div class="nav">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('recipes') }}">Recetas Anteriores</a>
+            <a href="{{ url_for('nueva') }}">Nueva Receta</a>
+        </div>
+    </div>
 
-            <div class="nav">
-                <a href="base.html">Inicio</a>
-                <a href="previousRecipes.html">Recetas Anteriores</a>
-                <a href="newRecipe.html">Nueva Receta</a>
-            </div>
-    </div>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
     <div class="footer">
-        <p>© 2024 BRC Calculadora De Recetas. Todos los derechos reservados.</p>
+        <p>© 2026 BRC Calculadora De Recetas. Todos los derechos reservados.</p>
     </div>
+
+    <script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
 </body>
 </html>

@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Nueva Receta</title>
-</head>
-<body>
-    <div class="">  </div>
-    
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container">
+    <h2>Nueva Receta</h2>
+    <form id="recipeForm">
+        <label>Nombre: <input type="text" id="name" required></label>
+        <label>Volumen (L): <input type="number" id="volumen" step="0.1" value="20" required></label>
+        <label>Eficiencia (%): <input type="number" id="eficiencia" step="1" value="75" required></label>
+        <label>Atenuación mínima (%): <input type="number" id="attenMin" step="1" value="70" required></label>
+        <label>Atenuación máxima (%): <input type="number" id="attenMax" step="1" value="75" required></label>
+
+        <h3>Fermentables</h3>
+        <table id="fermentablesTable">
+            <thead><tr><th>Nombre</th><th>Kg</th><th>PPG</th><th>EBC</th><th></th></tr></thead>
+            <tbody></tbody>
+        </table>
+        <button type="button" id="addFermentable">Agregar fermentable</button>
+
+        <div class="results" id="results"></div>
+
+        <button type="submit">Guardar Receta</button>
+    </form>
+</section>
+{% endblock %}
